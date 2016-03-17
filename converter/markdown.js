@@ -63,11 +63,19 @@ var parseStrong = function(str) {
   return str;
  }
 
+<<<<<<< HEAD
  var parseCode = function(str) {
   var codeRegExp = /`{1}(\w+)`{1}/;
   var stra = [];
   while ((stra = codeRegExp.exec(str)) !== null) {
     str = str.replace(stra[0], '<pre>' + stra[1] + '</pre>');
+=======
+ var parseBlockQuote = function(str) {
+  var quoteRegExp = /\:\"(.*?)\"\:/
+  var stra = [];
+  while ((stra = quoteRegExp.exec(str)) !== null) {
+    str = str.replace(stra[0], '<blockquote>' + stra[1] + '</blockquote>');
+>>>>>>> 9382536d8e2fe207d3d64d6a337ab46c19f7abe0
   }
   return str;
  }
@@ -82,7 +90,11 @@ var markdown = {
     str = parseStrong(str);
     str = parseHorizontaleLine(str);
     str = parseLink(str);
+<<<<<<< HEAD
     str = parseCode(str);
+=======
+    str = parseBlockQuote(str);
+>>>>>>> 9382536d8e2fe207d3d64d6a337ab46c19f7abe0
     return str;
   }
 };
